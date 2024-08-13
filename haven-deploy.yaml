@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: haven-deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: haven
+  template:
+    metadata:
+      name: haven
+      labels:
+        app: haven
+    spec:
+      containers:
+        - name: haven-container
+          image: tamilarasug/haven:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: RAILS_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: haven-config
+                  key: rails-env
+            - name: HAVEN_DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: haven-config
+                  key: haven-db-host
+            - name: HAVEN_DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: haven-config
+                  key: haven-db-name
+            - name: HAVEN_DB_ROLE
+              valueFrom:
+                configMapKeyRef:
+                  name: haven-config
+                  key: haven-db-role
+            - name: HAVEN_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: haven-secret
+                  key: haven-db-password
+            - name: HAVEN_USER_EMAIL
+              valueFrom:
+                configMapKeyRef:
+                  name: haven-config
+                  key: haven-user-email
+            - name: HAVEN_USER_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: haven-secret
+                  key: haven-user-password
+          volumeMounts:
+            - name: haven-storage
+              mountPath: /storage
+      volumes:
+        - name: haven-storage
+          persistentVolumeClaim:
+            claimName: haven-pvc

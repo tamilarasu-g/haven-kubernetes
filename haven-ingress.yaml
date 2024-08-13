@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-haven
+  # annotations:
+  #   cert-manager.io/issuer: letsencrypt-nginx
+spec:
+  # tls:
+  # - hosts:
+  #   - haven.epicbugs.tech
+  #   secretName: letsencrypt-nginx-haven
+  rules:
+    - host: haven.epicbugs.tech
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: haven
+                port:
+                  number: 3000
+  ingressClassName: nginx

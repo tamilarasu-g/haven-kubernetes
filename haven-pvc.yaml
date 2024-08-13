@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: haven-pvc
+spec:
+  storageClassName: nfs-rwx-storage
+  persistentVolumeReclaimPolicy: Retain
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

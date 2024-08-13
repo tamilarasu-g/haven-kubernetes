@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: haven-config
+  labels:
+    app: haven-config
+data:
+  rails-env: production
+  haven-db-host: postgres
+  haven-db-name: postgres
+  haven-db-role: haven
+  haven-user-email: admin@admin.com
+

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: haven
+  labels:
+    app: haven
+spec:
+  ports:
+    - name: haven
+      port: 3000
+      targetPort: 3000
+  selector:
+    app: haven
