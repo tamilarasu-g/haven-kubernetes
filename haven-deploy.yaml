@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: haven-container
-          image: tamilarasug/haven:latest
+          image: ghcr.io/havenweb/haven:d9b3f75
           ports:
             - containerPort: 3000
           env:

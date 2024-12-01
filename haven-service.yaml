@@ -6,8 +6,6 @@ metadata:
     app: haven
 spec:
   ports:
-    - name: haven
-      port: 3000
-      targetPort: 3000
+  - port: 3000
   selector:
     app: haven

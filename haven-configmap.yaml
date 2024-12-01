@@ -10,4 +10,3 @@ data:
   haven-db-name: postgres
   haven-db-role: haven
   haven-user-email: admin@admin.com
-

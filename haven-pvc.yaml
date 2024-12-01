@@ -3,8 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: haven-pvc
 spec:
-  storageClassName: nfs-rwx-storage
-  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs-client
   accessModes:
     - ReadWriteMany
   resources:
