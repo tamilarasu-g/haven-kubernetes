@@ -1,9 +1,10 @@
 # Install Haven Blog on K3S
 
-## Official Haven Repo : [Here]("https://github.com/havenweb/haven")
+## Official Repo
+[Haven]("https://github.com/havenweb/haven")
 
 ## Prerequisites
-### [Repo]("https://github.com/tamilarasu-g/k3s-ingress-lb-storageclass")
+[Repo]("https://github.com/tamilarasu-g/k3s-ingress-lb-storageclass")
 1. Deploy Metallb
 2. Deploy Nginx Ingress Controller
 
